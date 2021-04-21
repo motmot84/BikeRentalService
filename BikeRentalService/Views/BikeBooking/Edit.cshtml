@@ -1,0 +1,44 @@
+﻿@model BikeRentalService.Models.ViewModels.BikeBookingViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Bicycle Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RentalId" />
+            <input type="hidden" asp-for="RentedDate" />
+            <div class="form-group">
+                <b><label asp-for="CustomerFullName" class="control-label"></label></b>
+                @Html.DisplayFor(model => model.CustomerFullName)
+            </div>
+            <div class="form-group">
+                <b><label asp-for="SelectedBikeModel" class="control-label"></label></b>
+                @Html.DisplayFor(model => model.SelectedBikeModel)
+            </div>
+            <div class="form-group">
+                <b><label asp-for="RentedDate" class="control-label"></label></b>
+                @Html.DisplayFor(model => model.RentedDate)
+            </div>
+            <div class="form-group">
+                <b><label asp-for="ReturnedDate" class="control-label"></label></b>
+                <input asp-for="ReturnedDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")"/>
+                <span asp-validation-for="ReturnedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

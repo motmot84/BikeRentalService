@@ -1,0 +1,39 @@
+﻿@model BikeRentalService.Models.ViewModels.BikeBookingViewModel
+
+@{
+    ViewBag.Title = "Bicycle Rental";
+
+}
+<h1>Create</h1>
+
+<h4>Bicycle Rental</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerFullName" class="control-label"></label>
+                @Html.DropDownListFor(x => Model.SelectedCustomerId, new SelectList(Model.Customers, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "BikeTypeId" })
+                <span asp-validation-for="SelectedCustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedBikeModel" class="control-label"></label>
+                @Html.DropDownListFor(x => Model.SelectedBikeId, new SelectList(Model.Bikes, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "BikeTypeId" })
+                <span asp-validation-for="SelectedBikeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentedDate" class="control-label"></label>
+                <input asp-for="RentedDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="RentedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
