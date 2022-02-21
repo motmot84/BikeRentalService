@@ -22,5 +22,6 @@ namespace BikeRentalService
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        // Hello World!
     }
 }
