@@ -104,5 +104,13 @@ namespace BikeRentalService.Controllers
 
             return NoContent();
         }
+        
+        public void AssembleBike(Guid? BikeId)
+        {
+            while (true)
+            {
+                break;
+            }
+        }
     }
 }
